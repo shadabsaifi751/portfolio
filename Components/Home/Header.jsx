@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google';
 import Switch from '../common/Switch';
 import Logo from "../Assects/Logo.svg"
+import LogoGolden from "../Assects/LogoGolden.svg"
 // import {Components as Logo} from "../Assects/Logo.svg"
 // import {HeaderWrap} from './Header.module.js';
 import styled from 'styled-components';
@@ -28,21 +29,20 @@ const Header = ({ themeToggler }) => {
             {
               ChangeTheme ? (
                 <Image
-                  src={Logo}
+                  src={LogoGolden}
                   className="max-w-full"
-                  height={40}
-                  width={40}
-                  alt="Follow us on Twitter"
+                  height={50}
+                  width={50}
+                  alt="Logo"
                 />
-              ) : (
-                <Image
-                  src={Logo}
-                  className="max-w-full"
-                  height={40}
-                  width={40}
-                  alt="Follow us on Twitter"
-                />
-
+                ) : (
+                  <Image
+                    src={Logo}
+                    className="max-w-full"
+                    height={50}
+                    width={50}
+                    alt="Logo"
+                  />
               )
             }
           </div>

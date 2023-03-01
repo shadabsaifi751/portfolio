@@ -49,12 +49,12 @@ export default function Home() {
       window.removeEventListener("resize", debouncedDimensionCalculator);
   }, [timer]);
 
-  const [currentTheme, setCurrentTheme] = React.useState('light');
+  const [currentTheme, setCurrentTheme] = React.useState('dark');
 
   const themeToggler = () => {
-    currentTheme === 'light'
-      ? setCurrentTheme('dark')
-      : setCurrentTheme('light');
+    currentTheme === 'dark'
+      ? setCurrentTheme('light')
+      : setCurrentTheme('dark');
   };
 
 
