@@ -1,132 +1,57 @@
-import React ,{useState}from 'react';
-import styled from 'styled-components';
-import styles from '@/styles/Home.module.scss'
+import React, { useState } from 'react';
 import Image from 'next/image'
 import { Inter } from 'next/font/google';
+import Switch from '../common/Switch';
+import Logo from "../Assects/Logo.svg"
+// import {Components as Logo} from "../Assects/Logo.svg"
+// import {HeaderWrap} from './Header.module.js';
+import styled from 'styled-components';
 
-const ParaGra = styled.p`
-  color: ${(props) => props.theme.fontColorSecondary};
-`;
-const inter = Inter({ subsets: ['latin'] })
+const HeaderWrap = styled.header`
+  background-color: ${(props) => props.theme.backgroundColor};
+`
 
 
-const Header = ({themeToggler}) => {
-    const [ChangeTheme, setChangeTheme] = useState(false);
 
-    const checkHandle=(e)=>{
-        setChangeTheme(!ChangeTheme)
-        themeToggler()
-      }
+const Header = ({ themeToggler }) => {
+  const [ChangeTheme, setChangeTheme] = useState(false);
+
+  const checkHandle = (e) => {
+    setChangeTheme(!ChangeTheme)
+    themeToggler()
+  }
   return (
-    <div>
-    <ParaGra className={`text-3xl font-bold underline link ${styles.color}`}>Heloooo <a href="#">tailwind</a>
-    <input type={"checkbox"} name="cheked" onChange={checkHandle} checked={ChangeTheme}/>
-    </ParaGra>
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p className="">
-          Get started by editing&nbsp;
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <HeaderWrap className={`sticky top-0 left-0 py-3 z-40 w-full backdrop-blur h-full flex-none transition-colors duration-500 lg:z-50`}>
+      <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
+        <div className='flex justify-between items-center'>
+          <div className="Logo w-16">
+            {
+              ChangeTheme ? (
+                <Image
+                  src={Logo}
+                  className="max-w-full"
+                  height={40}
+                  width={40}
+                  alt="Follow us on Twitter"
+                />
+              ) : (
+                <Image
+                  src={Logo}
+                  className="max-w-full"
+                  height={40}
+                  width={40}
+                  alt="Follow us on Twitter"
+                />
+
+              )
+            }
+          </div>
+          <div>
+            <Switch checkHandle={checkHandle} ChangeTheme={ChangeTheme} />
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image
-            src="/thirteen.svg"
-            alt="13"
-            width={40}
-            height={31}
-            priority
-          />
-        </div>
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and&nbsp;API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL
-            with&nbsp;Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-    </div>
+    </HeaderWrap>
   )
 }
 

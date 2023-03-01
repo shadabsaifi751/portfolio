@@ -5,8 +5,9 @@ import Cursor from '@/Components/common/Cursor3';
 import { gsap } from "gsap";
 import { ThemeProvider } from 'styled-components';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { LightTheme,DarkTheme } from "@/content";
+import { LightTheme, DarkTheme } from "@/content";
 import Header from "@/Components/Home/Header";
+import Section from "@/Components/Home/Section";
 
 
 const themes = {
@@ -49,14 +50,14 @@ export default function Home() {
   }, [timer]);
 
   const [currentTheme, setCurrentTheme] = React.useState('light');
- 
-    const themeToggler = () => {
-        currentTheme === 'light'
-            ? setCurrentTheme('dark')
-            : setCurrentTheme('light');
-    };
 
-    
+  const themeToggler = () => {
+    currentTheme === 'light'
+      ? setCurrentTheme('dark')
+      : setCurrentTheme('light');
+  };
+
+
 
   return (
     <>
@@ -69,7 +70,8 @@ export default function Home() {
       <ThemeProvider theme={themes[currentTheme]}>
         <Layout>
           <Cursor isDesktop={isDesktop} />
-          <Header themeToggler={themeToggler}/>
+          <Header themeToggler={themeToggler} />
+          <Section />
         </Layout>
       </ThemeProvider>
     </>

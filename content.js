@@ -1,5 +1,5 @@
 export const DarkTheme = {
-    backgroundColor: '#15161b', //021f34//#1f2022
+    backgroundColor: '#202020', //021f34//#1f2022
     fontColorHeader: '#ffd479', ///fff
     fontColorHeaderHover: '#25265e', //25265e
     fontColorPrimary: '#b3b9c5', //fff
@@ -9,7 +9,7 @@ export const DarkTheme = {
     // commonBorder: '#00aaf2', //00aaf2
 };
 export const LightTheme = {
-    backgroundColor: '#f0edf6', //f9fafc/#fff
+    backgroundColor: '#dde1e2', //f9fafc/#fff
     fontColorHeader: '#343a40', ///25265e
     fontColorHeaderHover: '#fff', //fff
     fontColorPrimary: '#495057', //25265e
