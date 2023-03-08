@@ -2,12 +2,15 @@
     border-radius: 100%;
     mix-blend-mode: difference;
     z-index: 1024;
+    height: 7px;
+    width: 7px;
+    background-color: #fff;
 }
 
 .cursorFollower {
     border-radius: 100%;
-    left: -0.9rem;
-    top: -0.9rem;
+    left: -1rem;
+    top: -1rem;
     z-index: 1023;
     background: rgba(255, 255, 255, 0.6);
     will-change: transform;

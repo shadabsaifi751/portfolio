@@ -1,10 +1,10 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import styles from "./Cursor.module.scss";
 import { gsap, Linear } from "gsap";
 import { isSmallScreen } from '@/pages';
 
 const CURSOR_STYLES = {
-    CURSOR: "fixed hidden bg-cyan-700 w-3 h-3 select-none pointer-events-none z-50",
+    CURSOR: "fixed hidden select-none pointer-events-none z-50",
     FOLLOWER: "fixed hidden h-10 w-10 select-none pointer-events-none z-40",
 };
 
@@ -14,11 +14,11 @@ export default function Cursor3({ isDesktop }) {
 
     const onHover = () => {
         gsap.to(cursor.current, {
-            scale: 0.5,
+            scale: 0.3,
             duration: 0.3,
         });
         gsap.to(follower.current, {
-            scale: 3,
+            scale: 2,
             duration: 0.3,
         });
     };
@@ -59,7 +59,7 @@ export default function Cursor3({ isDesktop }) {
         });
     };
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (isDesktop && !isSmallScreen()) {
             initCursorAnimation();
         }

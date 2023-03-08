@@ -1,6 +1,6 @@
 export const DarkTheme = {
     backgroundColor: '#202020', //021f34//#1f2022
-    fontColorHeader: '#ffd479', ///fff
+    fontColorHeader: '#fff', ///fff
     fontColorHeaderHover: '#25265e', //25265e
     fontColorPrimary: '#b3b9c5', //fff
     fontColorSecondary: '#b3b9c5', //98c0c6

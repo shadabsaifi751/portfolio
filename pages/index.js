@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import Head from 'next/head'
 import Layout from '@/Components/common/Layout'
 import Cursor from '@/Components/common/Cursor3';
@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components';
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { LightTheme, DarkTheme } from "@/content";
 import Header from "@/Components/Home/Header";
-import Section from "@/Components/Home/Section";
+import HeadSection from "@/Components/Home/HeadSection";
 
 
 const themes = {
@@ -41,13 +41,13 @@ export default function Home() {
     }, DEBOUNCE_TIME);
   };
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     debouncedDimensionCalculator();
 
     window.addEventListener("resize", debouncedDimensionCalculator);
     return () =>
       window.removeEventListener("resize", debouncedDimensionCalculator);
-  }, [timer]);
+  }, [timer])
 
   const [currentTheme, setCurrentTheme] = React.useState('dark');
 
@@ -68,10 +68,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <ThemeProvider theme={themes[currentTheme]}>
+        <Cursor isDesktop={isDesktop} />
+        <Header themeToggler={themeToggler} />
         <Layout>
-          <Cursor isDesktop={isDesktop} />
-          <Header themeToggler={themeToggler} />
-          <Section />
+          <HeadSection />
         </Layout>
       </ThemeProvider>
     </>
