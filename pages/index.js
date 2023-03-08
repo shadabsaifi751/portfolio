@@ -1,4 +1,4 @@
-import React, { useEffect, useLayoutEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Head from 'next/head'
 import Layout from '@/Components/common/Layout'
 import Cursor from '@/Components/common/Cursor3';
@@ -41,7 +41,7 @@ export default function Home() {
     }, DEBOUNCE_TIME);
   };
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     debouncedDimensionCalculator();
 
     window.addEventListener("resize", debouncedDimensionCalculator);
@@ -70,8 +70,8 @@ export default function Home() {
       <ThemeProvider theme={themes[currentTheme]}>
         <Cursor isDesktop={isDesktop} />
         <Header themeToggler={themeToggler} />
+        <HeadSection />
         <Layout>
-          <HeadSection />
         </Layout>
       </ThemeProvider>
     </>
