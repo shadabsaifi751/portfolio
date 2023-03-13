@@ -1,7 +1,7 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import styles from "./Cursor.module.scss";
 import { gsap, Linear } from "gsap";
-import { isSmallScreen } from '@/pages';
+// import { isSmallScreen } from '@/pages';
 import { isBrowser } from './isBrower';
 
 const CURSOR_STYLES = {
@@ -9,7 +9,7 @@ const CURSOR_STYLES = {
     FOLLOWER: "fixed hidden h-10 w-10 select-none pointer-events-none z-40",
 };
 
-export default function Cursor3({ isDesktop }) {
+export default function Cursor3({ }) {
     const cursor = useRef(null);
     const follower = useRef(null);
 
@@ -61,10 +61,11 @@ export default function Cursor3({ isDesktop }) {
     };
 
     isBrowser() && React.useLayoutEffect(() => {
-        if (isDesktop && !isSmallScreen()) {
-            initCursorAnimation();
-        }
-    }, [cursor, follower, isDesktop]);
+        // if (isDesktop && !isSmallScreen()) {
+        //     initCursorAnimation();
+        // }
+        initCursorAnimation();
+    }, [cursor, follower]);
 
     return (
         <>

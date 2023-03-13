@@ -29,26 +29,26 @@ export default function Home() {
 
   let timer = null;
 
-  const debouncedDimensionCalculator = () => {
-    clearTimeout(timer);
-    timer = setTimeout(() => {
-      const isDesktopResult =
-        typeof window.orientation === "undefined" &&
-        navigator.userAgent.indexOf("IEMobile") === -1;
+  // const debouncedDimensionCalculator = () => {
+  //   clearTimeout(timer);
+  //   timer = setTimeout(() => {
+  //     const isDesktopResult =
+  //       typeof window.orientation === "undefined" &&
+  //       navigator.userAgent.indexOf("IEMobile") === -1;
 
-      window.history.scrollRestoration = "manual";
+  //     window.history.scrollRestoration = "manual";
 
-      setisDesktop(isDesktopResult);
-    }, DEBOUNCE_TIME);
-  };
+  //     setisDesktop(isDesktopResult);
+  //   }, DEBOUNCE_TIME);
+  // };
 
-  isBrowser() && React.useEffect(() => {
-    debouncedDimensionCalculator();
+  // React.useEffect(() => {
+  //   debouncedDimensionCalculator();
 
-    window.addEventListener("resize", debouncedDimensionCalculator);
-    return () =>
-      window.removeEventListener("resize", debouncedDimensionCalculator);
-  }, [timer])
+  //   window.addEventListener("resize", debouncedDimensionCalculator);
+  //   return () =>
+  //     window.removeEventListener("resize", debouncedDimensionCalculator);
+  // }, [timer])
 
   const [currentTheme, setCurrentTheme] = React.useState('dark');
 
@@ -67,7 +67,7 @@ export default function Home() {
       </Head>
       <ThemeProvider theme={themes[currentTheme]}>
         <Layout>
-          <Cursor isDesktop={isDesktop} />
+          <Cursor />
           <HeadSection themeToggler={themeToggler} />
         </Layout>
       </ThemeProvider>
