@@ -19,3 +19,36 @@ export const LightTheme = {
     commonBorder: '#15161b', //0556f3
 };
 
+
+
+export const MetaData = {
+    title: "Portfolio | Mohd shadab saifi",
+    description:
+        "I bridge the gap between design and development. I take responsibility to craft an aesthetic user experience using modern frontend architecture.",
+    siteUrl: "",
+};
+
+export const EmailId = "shadabsaifi749@gmail.com";
+
+export const MenuLink = [
+    {
+        name: "Home",
+        ref: "home",
+      },
+      {
+        name: "Works",
+        ref: "works",
+      },
+      {
+        name: "Skills",
+        ref: "skills",
+      },
+      {
+        name: "Contact us",
+        ref: "Contact",
+      },
+      {
+        name: "About us",
+        ref: "contact",
+      },
+]

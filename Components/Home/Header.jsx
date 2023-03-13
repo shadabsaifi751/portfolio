@@ -9,7 +9,7 @@ import LogoGolden from "../Assects/LogoGolden.svg"
 import styled from 'styled-components';
 
 const HeaderWrap = styled.header`
-  background-color: ${(props) => props.theme.backgroundColor};
+  // background-color: ${(props) => props.theme.backgroundColor};
 `
 
 
@@ -22,7 +22,7 @@ const Header = ({ themeToggler }) => {
     themeToggler()
   }
   return (
-    <HeaderWrap className={`sticky top-0 left-0 py-3 z-40 w-full backdrop-blur h-full flex-none transition-colors duration-500 lg:z-50`}>
+    <header className={`absolute top-0 left-0 py-3 bg-transparent z-40 w-full backdrop-blur flex-none transition-colors duration-500 lg:z-50 bg-gradient-to-b from-slate-900 to-transparent`}>
       <div className="max-w-8xl mx-auto px-4 sm:px-6 md:px-8">
         <div className='flex justify-between items-center'>
           <div className="Logo w-16">
@@ -47,11 +47,14 @@ const Header = ({ themeToggler }) => {
             }
           </div>
           <div>
-            <Switch checkHandle={checkHandle} ChangeTheme={ChangeTheme} />
+          {
+
+            // <Switch checkHandle={checkHandle} ChangeTheme={ChangeTheme} />
+          }
           </div>
         </div>
       </div>
-    </HeaderWrap>
+    </header>
   )
 }
 

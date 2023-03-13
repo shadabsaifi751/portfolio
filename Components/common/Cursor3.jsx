@@ -1,7 +1,8 @@
-import { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
 import styles from "./Cursor.module.scss";
 import { gsap, Linear } from "gsap";
 import { isSmallScreen } from '@/pages';
+import { isBrowser } from './isBrower';
 
 const CURSOR_STYLES = {
     CURSOR: "fixed hidden select-none pointer-events-none z-50",
@@ -59,7 +60,7 @@ export default function Cursor3({ isDesktop }) {
         });
     };
 
-    useLayoutEffect(() => {
+    isBrowser() && React.useLayoutEffect(() => {
         if (isDesktop && !isSmallScreen()) {
             initCursorAnimation();
         }
