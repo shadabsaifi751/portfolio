@@ -1,7 +1,6 @@
-import React, { useEffect, useLayoutEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import styles from "./Cursor.module.scss";
 import { gsap, Linear } from "gsap";
-// import { isSmallScreen } from '@/pages';
 import { isBrowser } from './isBrower';
 
 const CURSOR_STYLES = {
@@ -61,21 +60,34 @@ export default function Cursor3({ }) {
     };
 
     isBrowser() && React.useLayoutEffect(() => {
-        // if (isDesktop && !isSmallScreen()) {
-        //     initCursorAnimation();
-        // }
         initCursorAnimation();
     }, [cursor, follower]);
+
+    const [width, setWidth] = useState({
+        width: undefined
+    });
+
+    const Resizehandle = () => {
+        setWidth({
+            width: window.innerWidth
+        })
+    }
+
+    useEffect(() => {
+        Resizehandle();
+        window.addEventListener("resize", Resizehandle)
+        return () => window.addEventListener("resize", Resizehandle)
+    })
 
     return (
         <>
             <div
                 ref={cursor}
-                className={`${styles.Cursor} ${CURSOR_STYLES.CURSOR}`}
+                className={`${styles.Cursor} ${CURSOR_STYLES.CURSOR} ${width.width < 768 ? "none" : ""}`}
             ></div>
             <div
                 ref={follower}
-                className={`${styles.cursorFollower} ${CURSOR_STYLES.FOLLOWER}`}
+                className={`${styles.cursorFollower} ${width.width < 768 ? "none" : ""} ${CURSOR_STYLES.FOLLOWER}`}
             ></div>
         </>
     );

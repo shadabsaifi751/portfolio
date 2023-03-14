@@ -26,7 +26,8 @@ const HeadSection = ({themeToggler}) => {
 
     // Setting the width and height of the canvas
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = 600;
+    // canvas.height = window.innerHeight;
 
     // Setting up the letters
     let letters =
@@ -68,12 +69,12 @@ const HeadSection = ({themeToggler}) => {
   }, []);
 
     return (
-        <SectionWrap className={styles.main}>
+        <SectionWrap className={` ${styles.main} overflow-hidden`}>
             <Header themeToggler={themeToggler}/>
             <canvas ref={canvasRef} />
             <h1 data-text="Hi 👋 I'm Mohd Shadab saifi" className={`link ${styles.glitch} ${styled.heading}`}>Hi 👋 I'm Mohd Shadab saifi</h1>
             <Typer
-                className="mt-20 text-3xl"
+                className="mt-11 lg:mt-20 text-xl md:text-2xl lg:text-3xl"
                 heading="I"
                 dataText={[
                     'am a Softwere engineer',
@@ -83,6 +84,7 @@ const HeadSection = ({themeToggler}) => {
                     'am a problem solver'
                 ]}
             />
+            <div className="absolute right-0 bg-gradient-to-b from-transparent to-gray-900 h-20 w-full bottom-0"></div>
         </SectionWrap>
     )
 }
